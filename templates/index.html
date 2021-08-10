@@ -5,42 +5,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calories Burnt Prediction</title>
     <link rel="stylesheet" href=" {{url_for('static', filename = "style.css")}} ">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@0,300;0,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div id="body">
 
-        <div class="main__container">
-
-            <form action="{{ url_for('predict') }}" method="POST">
-                <div style="padding:10px;">
-                    <input name="user_gender" type="number" step="0.01" placeholder="gender"><br>
-                    <input name="user_age" type="number" step="0.01" placeholder="age"><br>
-                    <input name="user_height" type="number" step="0.01" placeholder="height"><br>
-                    <input name="user_weight" type="number" step="0.01" placeholder=" weight"><br>
-                    <input name="user_dur" type="number" step="0.01" placeholder="dur"><br>
-                    <input name="user_heart_rt" type="number" step="0.01" placeholder="hr rt"><br>
-                    <input name="user_bdy_temp" type="number" step="0.01" placeholder="bdy temp"><br>
-                    <button type="submit">Submit</button>
+        <div class="container-fluid main__div">
+            <div class="row">
+                <div class="col-lg-6 col-12 left__side">
+                    <h1 class="head__text">CALORIES <br /> <span class="head__text__lead"> Burnt Prediction </span></h1>
+                    <p class="head__lead">Calculate the total calories burnt. Just enter your age, height, <br />
+                        weight, gender, workout duration, heart rate and <br /> body temperature. </p>
+                    <i class="fas fa-arrow-right mt-5 text-muted"></i>
                 </div>
-            </form>
-            <div>
 
-                <p>Array: {{form_array}} </p>
-                {{ prediction_result }}
+                <i class="fas fa-caret-right traingle__icon"></i>
+                <div class="right__side col-lg-6 col-12">
+                    <div class="right__side__main__div">
+                        <form action="{{ url_for('predict') }}" method="POST">
+                            <p class="right__side__head">Body Parameters</p>
+                            <section class="gender_section">
+                                <input required type="radio" id="male" value="male" name="user_gender">
+                                <label for="male" class="radio_label">Male</label>
 
-                
+                                <input required type="radio" id="female" value="female" name="user_gender">
+                                <label for="female" class="radio_label">Female</label>
+                            </section>
+
+                            <div class="input__section">
+                                <input required name="user_age" type="number" step="0.01" class="inp1"
+                                    placeholder="Age">
+                                <input required name="user_weight" type="number" step="0.01" class="inp1"
+                                    placeholder="Weight (Kg)">
+                                <input required name="user_height" type="number" step="0.01" class="inp1"
+                                    placeholder="Height (cm)">
+                            </div>
+
+                            <div>
+                                <p class="right__side__head">Activity Status</p>
+                                <p class="right__side__lead">Measure these values after the workout session</p>
+                                <div class="input__section">
+                                    <input required name="user_dur" type="number" step="0.01" class="inp1"
+                                        placeholder="Duration (min)">
+                                    <input required name="user_heart_rt" type="number" step="0.01" class="inp1"
+                                        placeholder="Heart rate">
+                                    <input required name="user_bdy_temp" type="number" step="0.01" class="inp1"
+                                        placeholder="Body temp.">
+                                </div>
+                            </div>
+
+                            <button class="submit_btn"> <span class="submit_btn_text">CALCULATE</span></button>
+                        </form>
+                    </div>
+
+                    <div class="result_div py-3">
+                        {% if prediction_result %}
+                        <p> {{prediction_result}} calories burnt, {{stat}} </p>
+                        {% endif %}
+                    </div>
+
+                </div>
             </div>
-
         </div>
-
     </div>
-
 </body>
 
 </html>
