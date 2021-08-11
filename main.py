@@ -34,10 +34,10 @@ def predict():
     input = pd.DataFrame([[gender,age,height,weight,duration,ht_rate,temp]], columns=['Gender','Age','Height','Weight','Duration','Heart_Rate','Body_Temp'])
 
     prediction = model.predict(input)[0]
-    if prediction <= 250:
-        stat = "can push more!!"
+    if prediction <= 150:
+        stat = "Can push more!!"
     else:
-        stat = "great!"
+        stat = "Great!"
     return render_template("index.html", prediction_result=prediction, stat = stat)
 
 if __name__ == "__main__":
