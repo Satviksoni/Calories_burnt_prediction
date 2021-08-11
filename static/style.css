@@ -1,0 +1,244 @@
+#body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.main__div {
+    height: 100vh;
+    position: relative;
+}
+
+.traingle__icon {
+    z-index: 100;
+    font-size: 50px;
+    position: absolute;
+    left: 49%;
+    top: 50%;
+    transform: translateX(50%);
+    color: #fff;
+}
+
+.left__side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.head__text {
+    margin: 0;
+    font-weight: 700;
+    font-size: 75px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.head__text__lead {
+    margin: 0;
+    font-size: 50px;
+}
+
+.head__lead {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+}
+
+.right__side {
+    background-color: #F57C35;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.right__side__main__div {
+    padding-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.right__side__head {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    /* color: #FFF6EB; */
+    color: #000;
+    font-weight: 300;
+}
+
+.right__side__lead {
+    font-size: 15px;
+    margin: 0;
+    color: #000;
+    /* color: #FFF6EB; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.gender_section {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+}
+
+.radio_label {
+    height: 75px;
+    width: 47%;
+    background-color: #EB6F26;
+    color: #8B3906;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px #EB6F26;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 8px 6px -6px #000;
+}
+
+.input__section {
+    margin-top: 20px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.inp1 {
+    height: 40px;
+    border-radius: 20px;
+    width: 31%;
+    background-color: inherit;
+    border: 1px solid #8E3904;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.inp1::placeholder {
+    color: #8E3904;
+    font-weight: 400;
+}
+
+.inp1:focus {
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    border: none
+}
+
+.submit_btn {
+    margin-top: 30px;
+    float: right;
+    background-color: #000;
+    height: 45px;
+    width: 30%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #FFF6EB;
+    border: none;
+    cursor: pointer;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+    box-shadow: 0 8px 6px -6px #000;
+}
+
+.submit_btn_text {
+    -ms-transform: skewX(20deg);
+    -webkit-transform: skewX(20deg);
+    transform: skewX(20deg);
+    display: inline-block;
+}
+
+.submit_btn:focus {
+    outline: none;
+}
+
+.result_div {
+    margin-top: 200px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+
+}
+
+.result__text {
+    font-weight: 800;
+}
+
+@media screen and (max-width: 1200px) {
+    .input__section {
+        flex-direction: column;
+    }
+
+    .inp1 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+    #body {
+        overflow-y: auto;
+    }
+
+    .traingle__icon {
+        display: none;
+    }
+
+    .fa-arrow-right {
+        transform: rotate(90deg);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .head__text {
+        font-size: 60px;
+        line-height: 45px;
+
+    }
+
+    .head__text__lead {
+        font-size: 48px;
+    }
+
+    .head__lead {
+        font-size: 20px;
+    }
+
+    .right__side {
+        height: auto;
+    }
+
+    .submit_btn {
+        width: 50%;
+    }
+}
